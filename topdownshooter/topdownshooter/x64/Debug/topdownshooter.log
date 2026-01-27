@@ -1,9 +1,4 @@
-﻿  Game.cpp
-  Gun.cpp
-  topdownshooter.cpp
-C:\Users\jurij\Desktop\cppshooter\topdownshooter\topdownshooter\topdownshooter.cpp(11,26): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-C:\Users\jurij\Desktop\cppshooter\topdownshooter\topdownshooter\topdownshooter.cpp(11,13): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-  Generating Code...
+﻿  Gun.cpp
   topdownshooter.vcxproj -> C:\Users\jurij\Desktop\cppshooter\topdownshooter\x64\Debug\topdownshooter.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

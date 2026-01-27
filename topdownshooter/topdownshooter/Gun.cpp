@@ -3,7 +3,7 @@
 
 Gun::Gun()
 {
-	gun = { 0,0,30,8 };
+	gun = { 0,0,width, height };
 }
 
 /// <summary>
