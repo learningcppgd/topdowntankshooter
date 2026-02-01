@@ -15,5 +15,8 @@ public:
 	void Movement(Vector2 player_pos);
 	void Draw();
 	Vector2 RandomEnemySpawn();
+	Rectangle getRect() {
+		return Rectangle{ position.x, position.y, size.x, size.y };
+	}
 };
 

@@ -22,9 +22,15 @@ void Game::Update()
 		};
 		bullets.push_back(bullet);
 	}
-	for (Bullet& i : bullets)
+
+	for (size_t i{ 0 }; i < bullets.size(); i++)
 	{
-		i.Movement();
+		bullets[i].Movement();
+		if (bullets[i].out())
+		{
+			bullets[i] = bullets.back();
+			bullets.pop_back();
+		}
 	}
 	
 	// to spawn with key
@@ -34,7 +40,6 @@ void Game::Update()
 	//	enemies.push_back(enemy);
 	//}
 	start_interval += GetFrameTime();
-	std::cout << start_interval << '\n';
 	
 	if (start_interval >= end_interval)
 	{
@@ -43,11 +48,16 @@ void Game::Update()
 		start_interval = 0.0f;
 	}
 
-	for (Enemy& i : enemies)
+	for (size_t i{ 0 }; i < enemies.size(); i++)
 	{
-		i.Movement(player.getPosition());
+		enemies[i].Movement(player.getPosition());
+		if (CheckCollisionRecs(player.getRect(), enemies[i].getRect()))
+		{
+			player.getLives() -= 1;
+			enemies[i] = enemies.back();
+			enemies.pop_back();
+		}
 	}
-
 
 }
 
@@ -55,17 +65,22 @@ void Game::Draw()
 {
 	player.Draw();
 	gun.Draw(player.getCenter());
-	for (Bullet& i : bullets)
+	for (size_t i{ 0 }; i < bullets.size(); i++)
 	{
-		i.Draw();
+		bullets[i].Draw();
 	}
 
-	for (Enemy& i : enemies)
+	for (size_t i{ 0 }; i < enemies.size(); i++)
 	{
-		i.Draw();
+		enemies[i].Draw();
 	}
-
 	
-	std::string text = "Bullets: " + std::to_string(bullets.size());
-	DrawText(text.c_str(), 10, 10, 50, WHITE);
+	std::string text_bullets = "Bullets: " + std::to_string(bullets.size());
+	DrawText(text_bullets.c_str(), 10, 10, 50, WHITE);
+
+	std::string text_enemies = "Enemies: " + std::to_string(enemies.size());
+	DrawText(text_enemies.c_str(), 10, 60, 50, WHITE);
+
+	std::string text_life = "Lives: " + std::to_string(player.getLives());
+	DrawText(text_life.c_str(), 400, 10, 50, WHITE);
 }

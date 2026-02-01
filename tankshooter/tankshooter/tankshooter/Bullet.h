@@ -12,6 +12,7 @@ public:
 
 	void Movement();
 	void Draw();
+	bool out();
 
 };
 
