@@ -59,6 +59,23 @@ void Game::Update()
 		}
 	}
 
+	// size_t -> unsinged integer, ko 0 - 1 velika številka
+	for (int i = bullets.size() - 1; i >= 0; i--)
+	{
+		for (int j = enemies.size() - 1 ; j >= 0; j--)
+		{
+			if (CheckCollisionRecs(bullets[i].getRect(),
+				enemies[j].getRect()))
+			{
+				bullets[i] = bullets.back();
+				bullets.pop_back();
+				enemies[j] = enemies.back();
+				enemies.pop_back();
+				break;
+			}
+		}
+	}
+
 }
 
 void Game::Draw()

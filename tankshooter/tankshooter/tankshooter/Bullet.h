@@ -14,5 +14,10 @@ public:
 	void Draw();
 	bool out();
 
+	Rectangle getRect()
+	{
+		return Rectangle{ position.x, position.y, size.x, size.y };
+	}
+
 };
 

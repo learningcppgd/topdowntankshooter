@@ -1,4 +1,6 @@
 ﻿  Game.cpp
+C:\Users\jurij\Desktop\topdowntankshooter\tankshooter\tankshooter\tankshooter\Game.cpp(62,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\jurij\Desktop\topdowntankshooter\tankshooter\tankshooter\tankshooter\Game.cpp(64,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   tankshooter.vcxproj -> C:\Users\jurij\Desktop\topdowntankshooter\tankshooter\tankshooter\x64\Debug\tankshooter.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.
